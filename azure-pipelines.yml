@@ -27,6 +27,11 @@ steps:
     projects: '**/*.csproj'
     arguments: '--output $(Build.BinariesDirectory)/publish_output --configuration Release'
 
+- task: oneLuckiDevJson2Variable@1
+  inputs:
+    jsonFile: '$(Build.BinariesDirectory)/publish_output/appsettings.json'
+    shouldPrefixVariables: true
+
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)/publish_output'
