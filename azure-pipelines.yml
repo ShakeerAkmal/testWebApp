@@ -32,6 +32,8 @@ steps:
     jsonFile: '$(Build.BinariesDirectory)/publish_output/appsettings.json'
     shouldPrefixVariables: true
 
+- script: echo $(json.Version)
+
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)/publish_output'
