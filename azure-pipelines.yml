@@ -48,4 +48,11 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.BinariesDirectory)/publish_output'
+    Contents: 'appsettings.json'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/drop'
+    OverWrite: true
+
 
