@@ -38,7 +38,7 @@ steps:
   inputs:
     SourceFolder: '$(Build.BinariesDirectory)/publish_output'
     Contents: 'appsettings.json'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/drop'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
     OverWrite: true
     
 - task: ArchiveFiles@2
