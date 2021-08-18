@@ -34,6 +34,13 @@ steps:
 
 - script: echo $(json.Version)
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.BinariesDirectory)/publish_output'
+    Contents: 'appsettings.json'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/drop'
+    OverWrite: true
+    
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)/publish_output'
@@ -48,11 +55,6 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(Build.BinariesDirectory)/publish_output'
-    Contents: 'appsettings.json'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/drop'
-    OverWrite: true
+
 
 
